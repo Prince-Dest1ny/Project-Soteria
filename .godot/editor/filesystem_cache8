@@ -25,12 +25,12 @@ walk.png::CompressedTexture2D::6052387311978210335::1719880203::1720000259::1:::
 conveyor_belt.png::CompressedTexture2D::2117999311497662217::1719905025::1720000259::1::::<><>::
 factory.png::CompressedTexture2D::993390266596834644::1719879538::1720000259::1::::<><>::
 ::res://Builds/::1719991182
-::res://Scenes/::1719879556
+::res://Scenes/::1720003291
 building_ghost.tscn::PackedScene::7285253656953093749::1719988892::0::1::::<><>::uid://pq4pts3rn4hl::::res://Assets/Sprites/Buildings/Sigma.png
-game.tscn::PackedScene::8870622828095103862::1719999861::0::1::::<><>::uid://ofg80nmulxiq::::res://Assets/Tilesets/factory.png<>uid://b4qfy64yuo42o::::res://Scenes/player.tscn<>uid://chmk3jeu0chs4::::res://Assets/Sprites/cursor.png<>uid://5f8ey61oc1fh::::res://Assets/Tilesets/conveyor_belt.png<>res://Scripts/tilemap.gd<>uid://db2bcfhtboxdt::::res://Scenes/building_ghost.tscn
+game.tscn::PackedScene::8870622828095103862::1720003291::0::1::::<><>::uid://ofg80nmulxiq::::res://Assets/Tilesets/factory.png<>uid://b4qfy64yuo42o::::res://Scenes/player.tscn<>uid://chmk3jeu0chs4::::res://Assets/Sprites/cursor.png<>uid://5f8ey61oc1fh::::res://Assets/Tilesets/conveyor_belt.png<>res://Scripts/tilemap.gd<>uid://db2bcfhtboxdt::::res://Scenes/building_ghost.tscn
 Inventory.tscn::PackedScene::1467237520677649093::1719989996::0::1::::<><>::
 player.tscn::PackedScene::4455275311419490568::1719988892::0::1::::<><>::res://Scripts/player.gd<>uid://db3xwdq3povkx::::res://Assets/Sprites/Player(Temporary)/idle.png<>uid://cjydy6lbfmds6::::res://Assets/Sprites/Player(Temporary)/run.png<>uid://csh261t7ax5uh::::res://Assets/Sprites/Player(Temporary)/walk.png
-testbuilding.tscn::PackedScene::4710628338452757174::1719989924::0::1::::<><>::res://Scripts/Buildings/testbuilding.gd<>uid://pq4pts3rn4hl::::res://Assets/Sprites/Buildings/Sigma.png
+testbuilding.tscn::PackedScene::4710628338452757174::1720003337::0::1::::<><>::res://Scripts/Buildings/testbuilding.gd<>uid://pq4pts3rn4hl::::res://Assets/Sprites/Buildings/Sigma.png
 ::res://Scenes/Global/::1719920804
 gamemanager.tscn::PackedScene::246053298496304140::1719988892::0::1::::<><>::res://Scripts/Global/gamemanager.gd
 ::res://Scripts/::1719879560
