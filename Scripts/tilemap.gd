@@ -1,15 +1,14 @@
-extends TileMap
+extends Node2D
 
 # Variables
 # Player reference
 @onready var player = %Player
+
+@onready var tilemap = $TileMap
 # Intialize preview object
 var ghost
 # Build radius value, in tiles
 var build_radius = 5
-
-# What mode it starts in
-var mode = GameManager.selectMode.BUILDING
 
 #Initialise things
 # What building to build & display as ghost
@@ -24,23 +23,25 @@ var relative_pos
 var magnitude
 
 func _ready():
-	selected_building = GameManager.Buildings["sigma"]
+	print(%Player)
+	player = %Player
+	#selected_building = GameManager.Buildings["sigma"]
 	ghost = player.get_child(3)
 	pass
 
-
 func _process(_delta):
 	# Coordinates of tile in grid coordinates
-	selected_tile = local_to_map(get_global_mouse_position())
-	player_tile = local_to_map(player.get_child(1).global_position)
+	selected_tile = tilemap.local_to_map(get_global_mouse_position())
+	player_tile = tilemap.local_to_map(player.get_child(1).global_position)
 	relative_pos = selected_tile - player_tile
 	magnitude = sqrt(relative_pos.x**2 + relative_pos.y**2)
 	
 	# Moving the ghost around for a cursor and building preview
-	ghost.global_position = map_to_local(selected_tile)
+	ghost.global_position = tilemap.map_to_local(selected_tile)
 	
-	match mode:
+	match GameManager.mode:
 		GameManager.selectMode.SELECTING:
+			ghost.modulate = Color(1,1,1,0.8)
 			ghost.get_child(0).texture = ghost.cursor
 			#if magnitude < build_radius:
 			#	if selected_tile not in past:
@@ -55,8 +56,13 @@ func _process(_delta):
 			#		past.erase(i)
 	
 		GameManager.selectMode.BUILDING:
-			ghost.get_child(0).texture = selected_building.texture
-			if magnitude < build_radius:
-				ghost.modulate = Color(0.5,1,0.5,0.6)
+			if selected_building:
+				ghost.get_child(0).texture = selected_building.texture
+				if magnitude < build_radius:
+					ghost.modulate = Color(0.5,1,0.5,0.6)
+				else:
+					ghost.modulate = Color(1,0.5,0.5,0.6)
 			else:
-				ghost.modulate = Color(1,0.5,0.5,0.6)
+				GameManager.mode = GameManager.selectMode.SELECTING
+		GameManager.selectMode.INVENTORY:
+			ghost.get_child(0).texture = null

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://u50gm4n60pov"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/InvenManager.gd" id="1_gfrjv"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_gfrjv")
+
+[node name="Slots" type="Node2D" parent="."]

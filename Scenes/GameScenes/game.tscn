@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dym84kowhb47k"]
+
+[ext_resource type="PackedScene" uid="uid://o2p5ji13cg0h" path="res://Scenes/GameScenes/area_bunker.tscn" id="1_7jqqb"]
+[ext_resource type="PackedScene" uid="uid://b4qfy64yuo42o" path="res://Scenes/Objects/player.tscn" id="5_1wn2y"]
+[ext_resource type="PackedScene" uid="uid://db2bcfhtboxdt" path="res://Scenes/GUI/building_ghost.tscn" id="6_8nny3"]
+[ext_resource type="PackedScene" uid="uid://u50gm4n60pov" path="res://Scenes/GUI/Inventory.tscn" id="6_14sda"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Bunker" parent="." instance=ExtResource("1_7jqqb")]
+position = Vector2(-83, -4)
+
+[node name="Player" parent="Bunker" instance=ExtResource("5_1wn2y")]
+unique_name_in_owner = true
+position = Vector2(77, 17)
+
+[node name="Camera2D" type="Camera2D" parent="Bunker/Player"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(1.5, 1.5)
+zoom = Vector2(4, 4)
+position_smoothing_speed = 10.0
+
+[node name="Inventory" parent="Bunker/Player/Camera2D" instance=ExtResource("6_14sda")]
+process_mode = 4
+visible = false
+scale = Vector2(0.666667, 0.666667)
+
+[node name="BuildingGhost" parent="Bunker/Player" instance=ExtResource("6_8nny3")]
+position = Vector2(-340, 0)
+collision_layer = 0
+input_pickable = false

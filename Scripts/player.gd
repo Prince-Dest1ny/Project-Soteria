@@ -1,23 +1,30 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
 const ACCEL = 10
 const DEACCEL = 30
 const JUMP_VELOCITY = -400.0
 
+# To be dynamically changed
+var max_speed = 150.0
+# for smooth movement idk
 var current_acceleration = ACCEL
+# animation direction
 var move_in = "right"
 
+# Previous mode before inven opened
+var prevmode
+
+# For animation
 @onready var animated_sprite = $AnimatedSprite2D
+
+# Inventory master node
+@onready var inven = $Camera2D/Inventory
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready():
-	for i in range(get_child_count()):
-		print(get_child(i))
-
+# Moving shit
 func _physics_process(_delta):
 	var direction = Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))
 	direction = direction.normalized()
@@ -63,10 +70,10 @@ func _physics_process(_delta):
 		
 	# Smooth movement, because why not.
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * max_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, max_speed)
+		velocity.y = move_toward(velocity.y, 0, max_speed)
 		
 	#if direction:
 	#	if abs(velocity.x) > SPEED:
@@ -86,7 +93,18 @@ func _physics_process(_delta):
 	#			velocity.y = 0
 	#		else:
 	#			velocity.y -= DEACCEL * velocity.y/abs(velocity.y)
-	
-		
-	
 	move_and_slide()
+
+func _input(event):
+	if event.is_action_pressed("inventory"):
+			if not inven.visible:
+				prevmode = GameManager.mode
+				GameManager.mode = GameManager.selectMode.INVENTORY
+				max_speed = 70
+				inven.visible = true
+				inven.process_mode = PROCESS_MODE_INHERIT
+			else:
+				GameManager.mode = prevmode
+				max_speed = 150
+				inven.visible = false
+				inven.process_mode = PROCESS_MODE_DISABLED

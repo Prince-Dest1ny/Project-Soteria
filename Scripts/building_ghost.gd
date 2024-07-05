@@ -4,4 +4,6 @@ extends Area2D
 var cursor
 
 func _ready():
-	cursor = load("res://Assets/Sprites/cursor.png")
+	cursor = load("res://Assets/Sprites/GUI/cursor.png")
+
+
