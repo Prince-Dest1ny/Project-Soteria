@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://o2p5ji13cg0h"]
+[gd_scene load_steps=8 format=3 uid="uid://o2p5ji13cg0h"]
 
 [ext_resource type="Texture2D" uid="uid://ofg80nmulxiq" path="res://Assets/Tilesets/factory.png" id="1_optig"]
 [ext_resource type="Texture2D" uid="uid://chmk3jeu0chs4" path="res://Assets/Sprites/GUI/cursor.png" id="2_21i55"]
 [ext_resource type="Texture2D" uid="uid://5f8ey61oc1fh" path="res://Assets/Tilesets/conveyor_belt.png" id="3_nopu7"]
-[ext_resource type="Script" path="res://Scripts/tilemap.gd" id="4_jgr87"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcd0c"]
 texture = ExtResource("1_optig")
@@ -280,7 +279,6 @@ sources/1 = SubResource("TileSetAtlasSource_fwy5g")
 sources/2 = SubResource("TileSetAtlasSource_7khgp")
 
 [node name="Bunker" type="Node2D"]
-script = ExtResource("4_jgr87")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hbog0")

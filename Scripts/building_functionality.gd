@@ -3,10 +3,16 @@ extends Node2D
 # Variables
 # Player reference
 @onready var player = %Player
+@onready var ghost = player.get_child(3)
 
-@onready var tilemap = $TileMap
+# The different area tilemaps
+@onready var bunker = $Bunker
+@onready var surface
+
+# tilemap in use
+var tilemap
+
 # Intialize preview object
-var ghost
 # Build radius value, in tiles
 var build_radius = 5
 
@@ -23,10 +29,8 @@ var relative_pos
 var magnitude
 
 func _ready():
-	print(%Player)
-	player = %Player
+	tilemap = bunker.get_child(0)
 	#selected_building = GameManager.Buildings["sigma"]
-	ghost = player.get_child(3)
 	pass
 
 func _process(_delta):

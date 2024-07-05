@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dym84kowhb47k"]
+[gd_scene load_steps=6 format=3 uid="uid://dym84kowhb47k"]
 
+[ext_resource type="Script" path="res://Scripts/building_functionality.gd" id="1_4nenv"]
 [ext_resource type="PackedScene" uid="uid://o2p5ji13cg0h" path="res://Scenes/GameScenes/area_bunker.tscn" id="1_7jqqb"]
 [ext_resource type="PackedScene" uid="uid://b4qfy64yuo42o" path="res://Scenes/Objects/player.tscn" id="5_1wn2y"]
 [ext_resource type="PackedScene" uid="uid://db2bcfhtboxdt" path="res://Scenes/GUI/building_ghost.tscn" id="6_8nny3"]
 [ext_resource type="PackedScene" uid="uid://u50gm4n60pov" path="res://Scenes/GUI/Inventory.tscn" id="6_14sda"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_4nenv")
 
 [node name="Bunker" parent="." instance=ExtResource("1_7jqqb")]
 position = Vector2(-83, -4)
